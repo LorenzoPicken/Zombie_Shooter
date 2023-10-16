@@ -3,6 +3,7 @@ using UnityEngine;
 public class EnemyAttributes : MonoBehaviour
 {
     public float health = 100f;
+    [SerializeField] private SpawnPowerUp spawnPowerUp;
 
     public void TakeDamage(float damageAmount)
     {
@@ -10,11 +11,14 @@ public class EnemyAttributes : MonoBehaviour
         if(health <= 0f)
         {
             Die();
+
         }
     }
 
     void Die()
     {
-        Destroy(gameObject);
+        
+        spawnPowerUp.OnSpawn();
+        Destroy(this.gameObject);
     }
 }

@@ -10,6 +10,8 @@ public class FPSController : MonoBehaviour
     public float runSpeed = 12f;
     public float jumpForce = 7f;
     public float gravity = 10f;
+    public bool isRunning;
+    
 
     public float lookSpeed = 2f;
     public float lookXLimit = 45f;
@@ -18,9 +20,11 @@ public class FPSController : MonoBehaviour
 
     Vector3 moveDirection = Vector3.zero;
     float rotationX = 0;
+    GunBehaviour gunBehaviour;
     
 
     public bool canMove = true;
+    [SerializeField] MarathonPowerUp applyEffect;
 
     CharacterController characterController;
     // Start is called before the first frame update
@@ -29,21 +33,23 @@ public class FPSController : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        
+        GetComponent<GunBehaviour>();
     }
 
     // Update is called once per frame
     void Update()
     {
+
         #region Handles Movement
         Vector3 forward = transform.TransformDirection(Vector3.forward);
         Vector3 right = transform.TransformDirection(Vector3.right);
 
-        bool isRunning = Input.GetKey(KeyCode.LeftShift);
+        isRunning = Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.S);
         float curSpeedX = canMove ? (isRunning ? runSpeed : walkSpeed) * Input.GetAxis("Vertical") : 0;
         float curSpeedY = canMove ? (isRunning ? runSpeed : walkSpeed) * Input.GetAxis("Horizontal") : 0;
         float movementDirectionY = moveDirection.y;
         moveDirection = (forward * curSpeedX) + (right * curSpeedY);
+        
 
         #endregion 
 
@@ -77,5 +83,17 @@ public class FPSController : MonoBehaviour
             transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
         }
         #endregion
+    }
+
+    public void Is_Running()
+    {
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            isRunning = true;
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            isRunning = false;
+        }
     }
 }
