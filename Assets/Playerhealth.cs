@@ -8,7 +8,7 @@ public class Playerhealth : MonoBehaviour
     public int maxHealth = 100;
     public int currentHealth;
 
-    public HealthBar healthbar;
+    public HEALTHBAR healthbar;
 
     void start()
     {
@@ -24,7 +24,7 @@ public class Playerhealth : MonoBehaviour
     void TakeDamage(int damage)
     {
 
-        TakeDamage
+        TakeDamage(damage);
         currentHealth -= damage;
         healthbar.SetMaxHealth(currentHealth);
 
