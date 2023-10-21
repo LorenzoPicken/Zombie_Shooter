@@ -29,8 +29,6 @@ public class GunBehaviour : MonoBehaviour
     //Graphics
     public GameObject bulletHoleGraphic;
     public ParticleSystem muzzleFlash;
-    public CameraShake camerashake;
-    public float cameraShakeMagnitude, cameraShakeDuration;
     public TextMeshProUGUI text;
 
     private FPSController fpsController;
@@ -78,12 +76,10 @@ public class GunBehaviour : MonoBehaviour
 
                 EnemyAttributes enemy = rayHit.transform.GetComponent<EnemyAttributes>();
                 if (enemy != null) { enemy.TakeDamage(bulletDamage); }
-                //if (rayHit.collider.CompareTag("Enemy"))
-                //rayHit.collider.GetComponent<EnemyBehaviour>().TakeDamage(bulletDamage);
+                
             }
 
-            //ShakeCamera
-            //StartCoroutine(camerashake.CameraShaking());
+            
 
             //Graphics
             Instantiate(bulletHoleGraphic, rayHit.point, Quaternion.Euler(0, 180, 0));

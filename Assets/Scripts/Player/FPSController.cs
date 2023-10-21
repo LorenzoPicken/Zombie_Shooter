@@ -24,7 +24,7 @@ public class FPSController : MonoBehaviour
     
 
     public bool canMove = true;
-    [SerializeField] MarathonPowerUp applyEffect;
+    
 
     CharacterController characterController;
     // Start is called before the first frame update
@@ -33,7 +33,7 @@ public class FPSController : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        GetComponent<GunBehaviour>();
+        gunBehaviour = GetComponent<GunBehaviour>();
     }
 
     // Update is called once per frame
@@ -87,7 +87,7 @@ public class FPSController : MonoBehaviour
 
     public void Is_Running()
     {
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.Mouse1))
         {
             isRunning = true;
         }
@@ -95,5 +95,6 @@ public class FPSController : MonoBehaviour
         {
             isRunning = false;
         }
+
     }
 }

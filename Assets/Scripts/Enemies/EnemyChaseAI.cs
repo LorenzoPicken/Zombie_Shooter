@@ -34,6 +34,10 @@ public class EnemyChaseAI : MonoBehaviour
 
     public void WatchPlayer()
     {
-        transform.LookAt(Target.gameObject.transform);  
+        transform.LookAt(Target.gameObject.transform);
+        Vector3 eulerAngles = transform.eulerAngles;
+        eulerAngles.x = 0f;
+        eulerAngles.z = 0f;
+        transform.eulerAngles = eulerAngles;
     }
 }

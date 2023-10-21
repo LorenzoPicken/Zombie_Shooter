@@ -330,8 +330,8 @@ GameObject:
   - component: {fileID: 3271427053935885527}
   - component: {fileID: 6169087884202437783}
   - component: {fileID: -2011492821688600371}
-  - component: {fileID: 4376943191233758123}
   - component: {fileID: 6229088624837143432}
+  - component: {fileID: 4682288610165370002}
   m_Layer: 0
   m_Name: WalkingEnemy
   m_TagString: Enemy
@@ -471,36 +471,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 6229088624837143432}
-  playerPosition: {fileID: 0}
-  Target: {fileID: 0}
   maxWatchSpeed: 4
---- !u!54 &4376943191233758123
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6715679216392244831}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 1
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 80
-  m_CollisionDetection: 0
 --- !u!195 &6229088624837143432
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -515,7 +486,7 @@ NavMeshAgent:
   m_Acceleration: 60
   avoidancePriority: 50
   m_AngularSpeed: 250
-  m_StoppingDistance: 2.5
+  m_StoppingDistance: 2.2
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -523,6 +494,22 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &4682288610165370002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6715679216392244831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 864029cc527a76f47b2559e5dddbc7fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackRange: 2.3
+  attackCooldown: 2
+  attackWindUPTime: 0.5
+  attackDamage: 40
 --- !u!1 &6781796376716643886
 GameObject:
   m_ObjectHideFlags: 0

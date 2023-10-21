@@ -18983,7 +18983,7 @@ GameObject:
   - component: {fileID: 2452771992256493686}
   - component: {fileID: 2452771992256493687}
   - component: {fileID: 2452771992256493672}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TableHitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}

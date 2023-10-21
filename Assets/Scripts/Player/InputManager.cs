@@ -58,6 +58,7 @@ public class InputManager : MonoBehaviour
         {
             gunBehaviour.ADS();
         }
+        #endregion
     }
-    #endregion
+
 }
