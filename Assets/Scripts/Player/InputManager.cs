@@ -6,11 +6,13 @@ public class InputManager : MonoBehaviour
 {
     private FPSController fpsController;
     private GunBehaviour gunBehaviour;
+    private PauseMenuController pauseMenuController;
     // Update is called once per frame
     private void Start()
     {
         fpsController = GetComponent<FPSController>();
         gunBehaviour = GetComponent<GunBehaviour>();
+        pauseMenuController = GetComponent<PauseMenuController>();
     }
     void Update()
     {
@@ -59,6 +61,8 @@ public class InputManager : MonoBehaviour
             gunBehaviour.ADS();
         }
         #endregion
+
+        
     }
 
 }

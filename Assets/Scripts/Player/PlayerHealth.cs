@@ -11,6 +11,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private float regenRate;
     [SerializeField] private float timeToStartRegen;
     [SerializeField] private TextMeshProUGUI healthDisplay;
+    private SceneSwitcher sceneSwitch;
     private float timeSinceLastDamage;
     private float currentPlayerHealth;
     private Coroutine regenCoroutine;
@@ -18,6 +19,7 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         currentPlayerHealth = maxPlayerHealth;
+        sceneSwitch = GetComponent<SceneSwitcher>();
     }
 
     // Update is called once per frame
@@ -26,7 +28,7 @@ public class PlayerHealth : MonoBehaviour
         healthDisplay.SetText("Health: " + currentPlayerHealth.ToString());
         if(currentPlayerHealth <= 0) 
         {
-            Destroy(this.gameObject);
+            PlayerDies();
         }
         if (Time.time - timeSinceLastDamage >= timeToStartRegen)
         {
@@ -46,6 +48,13 @@ public class PlayerHealth : MonoBehaviour
     {
         currentPlayerHealth -= amount;
         timeSinceLastDamage = Time.time;
+    }
+
+    public void PlayerDies()
+    {
+        sceneSwitch.SwitchScene(2);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
     IEnumerator RegenHealth()
     {

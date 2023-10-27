@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class MarathonPowerUp: PowerUp
 {
-    private float marathonWalkSpeed = 12f;
-    private float marathonSprintSpeed = 15f;
+    private float marathonWalkSpeed = 14f;
+    private float marathonSprintSpeed = 14f;
     private float originalWalkSpeed, originalSprintSpeed;
     FPSController fpsController;
 

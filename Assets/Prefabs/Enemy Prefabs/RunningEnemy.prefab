@@ -26,7 +26,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4682288610165370002, guid: 97e287d292f3c0e4f87c3b4afe3f13c6, type: 3}
       propertyPath: attackWindUPTime
-      value: 0.5
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 6169087884202437783, guid: 97e287d292f3c0e4f87c3b4afe3f13c6, type: 3}
       propertyPath: maxRange
@@ -34,7 +34,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6229088624837143432, guid: 97e287d292f3c0e4f87c3b4afe3f13c6, type: 3}
       propertyPath: m_Speed
-      value: 9
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 6229088624837143432, guid: 97e287d292f3c0e4f87c3b4afe3f13c6, type: 3}
       propertyPath: m_StoppingDistance
