@@ -16,6 +16,14 @@ PrefabInstance:
       propertyPath: maxWatchSpeed
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 3271427053935885527, guid: 97e287d292f3c0e4f87c3b4afe3f13c6, type: 3}
+      propertyPath: givePoints
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3271427053935885527, guid: 97e287d292f3c0e4f87c3b4afe3f13c6, type: 3}
+      propertyPath: pointsOnKill
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 4682288610165370002, guid: 97e287d292f3c0e4f87c3b4afe3f13c6, type: 3}
       propertyPath: attackRange
       value: 2.3

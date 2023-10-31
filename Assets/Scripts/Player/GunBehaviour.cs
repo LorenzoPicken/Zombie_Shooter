@@ -105,11 +105,13 @@ public class GunBehaviour : MonoBehaviour
             isADS = true;
             CurrentSpread = bulletSpread;
             bulletSpread = 0f;
+            Debug.Log("Im ADSing");
         }
         else if (isADS == true)
         {
             isADS = false;
             bulletSpread = StartingBulletSpread;
+            Debug.Log("ADS off");
         }
     }
     //handles reseting shots

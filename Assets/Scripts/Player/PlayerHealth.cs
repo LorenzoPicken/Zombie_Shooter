@@ -20,6 +20,7 @@ public class PlayerHealth : MonoBehaviour
     {
         currentPlayerHealth = maxPlayerHealth;
         sceneSwitch = GetComponent<SceneSwitcher>();
+        
     }
 
     // Update is called once per frame

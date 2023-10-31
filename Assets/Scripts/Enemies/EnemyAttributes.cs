@@ -4,6 +4,8 @@ public class EnemyAttributes : MonoBehaviour
 {
     public float health = 100f;
     [SerializeField] private SpawnPowerUp spawnPowerUp;
+    [SerializeField] private PointSystem givePoints;
+    [SerializeField] private int pointsOnKill;
 
     public void TakeDamage(float damageAmount)
     {
@@ -19,6 +21,7 @@ public class EnemyAttributes : MonoBehaviour
     {
         
         spawnPowerUp.OnSpawn();
+        //givePoints.GainPoints(pointsOnKill);
         Destroy(this.gameObject);
     }
 }
