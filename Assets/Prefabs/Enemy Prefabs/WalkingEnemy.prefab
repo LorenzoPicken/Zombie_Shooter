@@ -442,8 +442,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   spawnPowerUp: {fileID: 6169087884202437783}
-  givePoints: {fileID: 0}
-  pointsOnKill: 50
 --- !u!114 &6169087884202437783
 MonoBehaviour:
   m_ObjectHideFlags: 0

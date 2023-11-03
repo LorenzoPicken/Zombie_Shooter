@@ -21,7 +21,7 @@ public abstract class PowerUpProperties : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             player = other.GetComponent<FPSController>();
-            ActivatePowerUp();
+            ActivatePowerUp();  
         }
     }
 

@@ -17,7 +17,8 @@ public class GunBehaviour : MonoBehaviour
     [SerializeField] public float reloadTime;
     [SerializeField] public int magazineSize, bulletsPerTap;
     [SerializeField] public bool is_Automatic;
-    public int bulletsLeftInMag, bulletsShot;
+    public int bulletsShot;
+    private bool isInfinite = false;
 
     public bool shooting, readyToShoot, reloading, isADS;
 
@@ -31,13 +32,37 @@ public class GunBehaviour : MonoBehaviour
     public ParticleSystem muzzleFlash;
     public TextMeshProUGUI text;
 
+
+/* Unmerged change from project 'Assembly-CSharp.Player'
+Before:
     private FPSController fpsController;
 
 
     private void Start()
+After:
+    private FPSController fpsController;
+    private global::System.Int32 bulletsLeftInMag;
+
+    private void Start()
+*/
+    private FPSController fpsController;
+    private int bulletsLeftInMag;
+
+    public int BulletsLeftInMag 
+    { 
+        get => bulletsLeftInMag;
+        set 
+        {
+            if(isInfinite) return;
+
+            bulletsLeftInMag = value; 
+        }
+    }
+
+    private void Start()
     {
         StartingBulletSpread = bulletSpread;
-        bulletsLeftInMag = magazineSize;
+        BulletsLeftInMag = magazineSize;
         readyToShoot = true;
         isADS = false;
         GetComponent<FPSController>();
@@ -47,16 +72,16 @@ public class GunBehaviour : MonoBehaviour
     private void Update()
     {
         //MyInput();
-        if (bulletsLeftInMag == 0 && !reloading) Reload();
+        if (BulletsLeftInMag == 0 && !reloading) Reload();
 
         //SetText
-        text.SetText(bulletsLeftInMag + " / " + magazineSize);
+        text.SetText(BulletsLeftInMag + " / " + magazineSize);
     }
 
     //Handles shooting
     public void Shoot() 
     {
-        if (readyToShoot && shooting && !reloading && bulletsLeftInMag > 0)
+        if (readyToShoot && shooting && !reloading && BulletsLeftInMag > 0)
         {
             bulletsShot = bulletsPerTap;
             muzzleFlash.Play();
@@ -85,11 +110,11 @@ public class GunBehaviour : MonoBehaviour
             Instantiate(bulletHoleGraphic, rayHit.point, Quaternion.Euler(0, 180, 0));
 
 
-            bulletsLeftInMag--;
+            BulletsLeftInMag--;
             bulletsShot--;
             Invoke("ResetShot", fireCooldown);
 
-            if (bulletsShot > 0 && bulletsLeftInMag > 0)
+            if (bulletsShot > 0 && BulletsLeftInMag > 0)
             {
                 Invoke("Shoot", fireCooldown);
             }
@@ -123,7 +148,7 @@ public class GunBehaviour : MonoBehaviour
     //Handles reloading
     public void Reload()
     {
-        if (bulletsLeftInMag < magazineSize && !reloading) 
+        if (BulletsLeftInMag < magazineSize && !reloading) 
         {
             reloading = true;
             Invoke("ReloadFinished", reloadTime);
@@ -131,9 +156,21 @@ public class GunBehaviour : MonoBehaviour
 
     }
 
+    public void StartInfiniteMode()
+    {
+        isInfinite = true;
+    }
+
+    public void StopInfiniteMode() 
+    { 
+        isInfinite = false;
+
+    }
+
+
     private void ReloadFinished()
     {
-        bulletsLeftInMag = magazineSize;
+        BulletsLeftInMag = magazineSize;
         reloading = false;
     }
 }

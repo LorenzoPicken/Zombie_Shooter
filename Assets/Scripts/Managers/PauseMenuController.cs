@@ -44,4 +44,8 @@ public class PauseMenuController : MonoBehaviour
         Cursor.visible = false;
         GameManager.instance.SwitchGameMode(GameMode.PLAY);
     }
+    public void Resume()
+    {
+
+    }
 }

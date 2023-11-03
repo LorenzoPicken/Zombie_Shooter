@@ -18,11 +18,11 @@ public class EmpoweredPowerUp : PowerUp
     }
     public override void Activate()
     {
-        gunBehaviour.bulletsLeftInMag = 1000000000;
+        fpsController.gunBehaviour.StartInfiniteMode();
     }
 
     public override void Deactivate()
     {
-        gunBehaviour.bulletsLeftInMag = gunBehaviour.magazineSize;
+        fpsController.gunBehaviour.StopInfiniteMode();
     }
 }

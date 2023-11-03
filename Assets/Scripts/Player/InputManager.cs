@@ -7,14 +7,14 @@ public class InputManager : MonoBehaviour
     private FPSController fpsController;
     private GunBehaviour gunBehaviour;
     private PauseMenuController pauseMenuController;
-    private BasicMelee melee;
+    
     // Update is called once per frame
     private void Start()
     {
         fpsController = GetComponent<FPSController>();
         gunBehaviour = GetComponent<GunBehaviour>();
         pauseMenuController = GetComponent<PauseMenuController>();
-        melee = GetComponent<BasicMelee>();
+        
         
     }
     void Update()
@@ -64,20 +64,7 @@ public class InputManager : MonoBehaviour
             gunBehaviour.ADS();
         }
         #endregion
-        #region Basic melee
-        //When meleeing
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            melee.meleeing = true;
-            melee.Melee();
-        }
-
-        //when meleeing has stopped
-        if (Input.GetKeyUp(KeyCode.V))
-        {
-            melee.meleeing = false;
-        }
-        #endregion
+        
 
     }
 
