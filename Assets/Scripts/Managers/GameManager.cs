@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.ComTypes;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -25,6 +26,11 @@ public class GameManager : MonoBehaviour
     public void SwitchScene(int sceneIndex)
     {
         SceneManager.LoadScene(sceneIndex);
+
+        if(sceneIndex == 0 || sceneIndex == 2)
+        {
+            Stats.ResetPoints();
+        }
     }
 
     public void SwitchGameMode(GameMode newGameMode)
