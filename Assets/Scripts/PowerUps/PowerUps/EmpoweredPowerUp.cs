@@ -18,6 +18,7 @@ public class EmpoweredPowerUp : PowerUp
     }
     public override void Activate()
     {
+        fpsController.gunBehaviour.BulletsLeftInMag = fpsController.gunBehaviour.magazineSize;
         fpsController.gunBehaviour.StartInfiniteMode();
     }
 
