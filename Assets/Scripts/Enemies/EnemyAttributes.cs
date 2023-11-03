@@ -1,10 +1,11 @@
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 public class EnemyAttributes : MonoBehaviour
 {
     public float health = 100f;
     [SerializeField] private SpawnPowerUp spawnPowerUp;
-
+    [SerializeField] private int pointsOnDeath;
     public void TakeDamage(float damageAmount)
     {
         health -= damageAmount;
@@ -15,9 +16,13 @@ public class EnemyAttributes : MonoBehaviour
         }
     }
 
+    
+
+
+
     void Die()
     {
-        
+        Stats.GainPoints(pointsOnDeath);
         spawnPowerUp.OnSpawn();
         Destroy(this.gameObject);
     }
