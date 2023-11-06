@@ -1,7 +1,6 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public static class Stats
 {
@@ -9,6 +8,12 @@ public static class Stats
     public static event Action onGainPoints;
 
     private static int points = 0;
+
+    public static int Points
+    {
+        get { return points; }
+        set { points = value; }
+    }
 
     public static void ResetPoints()
     {
@@ -20,21 +25,4 @@ public static class Stats
         points += amount;
         onGainPoints?.Invoke();
     }
-}
-
-
-public class PointsUI : MonoBehaviour
-{
-    [SerializeField] private TextMeshProUGUI pointsDisplay;
-    void Awake()
-    {
-        Stats.onGainPoints += UpdateUI;
-
-    }
-
-    void UpdateUI()
-    {
-        //Update UI Logic
-    }
-
 }
