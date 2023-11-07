@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemySpawnHandler : MonoBehaviour
 {
 
-    [SerializeField] bool autoSpawn;
+    [SerializeField] bool canSpawn;
     [SerializeField] private int maxEnemyCount;
     [SerializeField] float timeBetweenSpawns;
     [SerializeField] Transform spawner1Position;
@@ -29,35 +29,7 @@ public class EnemySpawnHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P) && autoSpawn == false)
-        {
-            RandomizeSpawner();
-            if (spawnerRoll == 1)
-            {
-                SpawnEnemy(spawner1Position);
-            }
-            else if (spawnerRoll == 2)
-            {
-                SpawnEnemy(spawner2Position);
-            }
-            else if (spawnerRoll == 3)
-            {
-                SpawnEnemy(spawner3Position);
-            }
-            else if (spawnerRoll == 4)
-            {
-                SpawnEnemy(spawner4Position);
-            }
-            else if (spawnerRoll == 5)
-            {
-                SpawnEnemy(spawner5Position);
-            }
-            else if (spawnerRoll == 6)
-            {
-                SpawnEnemy(spawner6Position);
-            }
-        }
-        if (autoSpawn == true)
+        if (canSpawn == true)
         {
             RandomizeSpawner();
             if(spawnerRoll == 1) 

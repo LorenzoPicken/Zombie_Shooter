@@ -97,17 +97,22 @@ After:
             //Raycast
             if (Physics.Raycast(playerCamera.transform.position, direction, out rayHit, range))
             {
+                Vector3 hitPoint = rayHit.point;
+                Vector3 surfaceNormal = rayHit.normal;
+
+                Quaternion rotation = Quaternion.FromToRotation(hitPoint, surfaceNormal);
                 Debug.Log(rayHit.transform.name);
 
                 EnemyAttributes enemy = rayHit.transform.GetComponent<EnemyAttributes>();
                 if (enemy != null) { enemy.TakeDamage(bulletDamage); }
+                else { Instantiate(bulletHoleGraphic, hitPoint, rotation); }
                 
             }
 
             
-
+            
             //Graphics
-            Instantiate(bulletHoleGraphic, rayHit.point, Quaternion.Euler(0, 180, 0));
+            //Instantiate(bulletHoleGraphic, rayHit.point, Quaternion.Euler(0, 180, 0));
 
 
             BulletsLeftInMag--;
