@@ -9,7 +9,7 @@ public class SceneSwitcher : MonoBehaviour
     {
         if(sceneIndex == 0 || sceneIndex ==1)
         {
-            Stats.ResetPoints();
+            Stats.ResetStats();
         }
         GameManager.instance.SwitchScene(sceneIndex);
     }

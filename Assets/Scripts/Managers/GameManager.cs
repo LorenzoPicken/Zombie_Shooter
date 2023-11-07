@@ -27,9 +27,10 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(sceneIndex);
 
-        if(sceneIndex == 0 || sceneIndex == 2)
+        if(sceneIndex == 0 || sceneIndex == 1)
         {
-            Stats.ResetPoints();
+            Debug.Log("Reseting Stats");
+            Stats.ResetStats();
         }
     }
 

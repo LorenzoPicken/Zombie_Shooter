@@ -23,6 +23,7 @@ public class EnemyAttributes : MonoBehaviour
     void Die()
     {
         Stats.GainPoints(pointsOnDeath);
+        Stats.GainKills();
         spawnPowerUp.OnSpawn();
         Destroy(this.gameObject);
     }
