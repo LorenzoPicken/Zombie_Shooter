@@ -101,7 +101,6 @@ After:
                 Vector3 surfaceNormal = rayHit.normal;
 
                 Quaternion rotation = Quaternion.FromToRotation(hitPoint, surfaceNormal);
-                Debug.Log(rayHit.transform.name);
 
                 EnemyAttributes enemy = rayHit.transform.GetComponent<EnemyAttributes>();
                 if (enemy != null) { enemy.TakeDamage(bulletDamage); }
@@ -135,13 +134,11 @@ After:
             isADS = true;
             CurrentSpread = bulletSpread;
             bulletSpread = 0f;
-            Debug.Log("Im ADSing");
         }
         else if (isADS == true)
         {
             isADS = false;
             bulletSpread = StartingBulletSpread;
-            Debug.Log("ADS off");
         }
     }
     //handles reseting shots

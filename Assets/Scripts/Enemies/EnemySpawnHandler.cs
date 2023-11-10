@@ -6,7 +6,6 @@ public class EnemySpawnHandler : MonoBehaviour
 {
 
     [SerializeField] bool canSpawn;
-    [SerializeField] private int maxEnemyCount;
     [SerializeField] float timeBetweenSpawns;
     [SerializeField] Transform spawner1Position;
     [SerializeField] Transform spawner2Position;
@@ -14,30 +13,100 @@ public class EnemySpawnHandler : MonoBehaviour
     [SerializeField] Transform spawner4Position;
     [SerializeField] Transform spawner5Position;
     [SerializeField] Transform spawner6Position;
-    [SerializeField] GameObject walkingEnemy;
-    [SerializeField] GameObject runningEnemy;
+    [SerializeField] EnemyAttributes walkingEnemy;
+    [SerializeField] EnemyAttributes runningEnemy;
+    [SerializeField] EnemyAttributes stumblingEnemy;
     private int enemyRoll;
+    private int minEnemyRoll = 1;
+    private int maxEnemyRoll = 3;
     private int spawnerRoll;
     private float timeSinceLastSpawn;
-    private int currentEnemyCount;
+    private RoundManager roundManager;
+
+
+    public bool CanSpawn
+    {
+        get { return canSpawn; }
+        set { canSpawn = value; }
+    }
+
+    public float TimeBetweenSpawns
+    {
+        get { return timeBetweenSpawns; }
+        set { timeBetweenSpawns = value; }
+    }
+
+    public int MaxEnemyRoll
+    {
+        get { return maxEnemyRoll; }
+        set { maxEnemyRoll = value; }
+    }
+
+    public float TimeSinceLastSpawn
+    {
+        get { return timeSinceLastSpawn; }
+        set { timeSinceLastSpawn = value; }
+    }
     // Start is called before the first frame update
     void Start()
     {
-        currentEnemyCount = 0;
+        roundManager = GetComponent<RoundManager>();
+    }
+    public void SpawnEnemy(Transform spawner)
+    {
+        RandomizeEnemyType();
+        if (enemyRoll >= 1 && enemyRoll <= 2)
+        {
+            EnemyAttributes enemy = Instantiate(stumblingEnemy, spawner.position, Quaternion.identity);
+            //Increase enemy health
+            enemy.health = 100 + (30 * RoundManager.roundNum);
+        }
+        else if (enemyRoll >= 3 && enemyRoll <= 6)
+        {
+            EnemyAttributes enemy = Instantiate(walkingEnemy, spawner.position, Quaternion.identity);
+            //Increase enemy health
+            enemy.health = 100 + (30 * RoundManager.roundNum);
+        }
+        else if (enemyRoll >= 7 && enemyRoll <= 15)
+        {
+            EnemyAttributes enemy = Instantiate(runningEnemy, spawner.position, Quaternion.identity);
+            //Increase enemy health
+            enemy.health = 100 + (30 * RoundManager.roundNum);
+        }
+    }
+    public void RandomizeEnemyType()
+    {
+        enemyRoll = Random.Range(minEnemyRoll, maxEnemyRoll);
+
+
+    }
+    public void RandomizeSpawner()
+    {
+        spawnerRoll = Random.Range(1, 7);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void autoEnemySpawning(Transform spawner)
+    {
+        timeSinceLastSpawn += Time.deltaTime;
+        if (timeSinceLastSpawn >= timeBetweenSpawns)
+        {
+            Stats.NumEnemiesOnField++;
+            roundManager.EnemiesSpawnedThisRound++;
+            SpawnEnemy(spawner);
+            timeSinceLastSpawn = 0f;
+        }
+    }
+    public void Spawn()
     {
         if (canSpawn == true)
         {
             RandomizeSpawner();
-            if(spawnerRoll == 1) 
-            { 
+            if (spawnerRoll == 1)
+            {
                 autoEnemySpawning(spawner1Position);
 
             }
-            else if(spawnerRoll == 2)
+            else if (spawnerRoll == 2)
             {
                 autoEnemySpawning(spawner2Position);
             }
@@ -57,39 +126,6 @@ public class EnemySpawnHandler : MonoBehaviour
             {
                 autoEnemySpawning(spawner6Position);
             }
-        }
-       
-    }
-    public void SpawnEnemy(Transform spawner)
-    {
-        RandomizeEnemyType();
-        if (enemyRoll == 1)
-        {
-            Instantiate(walkingEnemy, spawner.position, Quaternion.identity);
-        }
-        else
-        {
-            Instantiate(runningEnemy, spawner.position, Quaternion.identity);
-        }
-    }
-    public void RandomizeEnemyType()
-    {
-        enemyRoll = Random.Range(1, 3);
-
-
-    }
-    public void RandomizeSpawner()
-    {
-        spawnerRoll = Random.Range(1, 7);
-    }
-
-    public void autoEnemySpawning(Transform spawner)
-    {
-        timeSinceLastSpawn += Time.deltaTime;
-        if (timeSinceLastSpawn >= timeBetweenSpawns)
-        {
-            SpawnEnemy(spawner);
-            timeSinceLastSpawn = 0f;
         }
     }
 }

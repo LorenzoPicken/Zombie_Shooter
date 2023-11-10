@@ -42846,7 +42846,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -243.3125, y: 185}
+  m_AnchoredPosition: {x: -227, y: 177}
   m_SizeDelta: {x: 300, y: 28.6288}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &915977997
@@ -63647,6 +63647,7 @@ GameObject:
   - component: {fileID: 1348345349}
   - component: {fileID: 1348345348}
   - component: {fileID: 1348345347}
+  - component: {fileID: 1348345352}
   m_Layer: 0
   m_Name: SpawnManager
   m_TagString: Untagged
@@ -63667,16 +63668,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canSpawn: 1
-  maxEnemyCount: 30
-  timeBetweenSpawns: 3
+  timeBetweenSpawns: 6
   spawner1Position: {fileID: 2133442800}
   spawner2Position: {fileID: 1053993507}
   spawner3Position: {fileID: 1674645748}
   spawner4Position: {fileID: 1275053960}
   spawner5Position: {fileID: 1719658108}
   spawner6Position: {fileID: 1474638661}
-  walkingEnemy: {fileID: 6715679216392244831, guid: 97e287d292f3c0e4f87c3b4afe3f13c6, type: 3}
-  runningEnemy: {fileID: 5770999833564642048, guid: 948823f11fcad144a9551eee2cb736be, type: 3}
+  walkingEnemy: {fileID: 3271427053935885527, guid: 97e287d292f3c0e4f87c3b4afe3f13c6, type: 3}
+  runningEnemy: {fileID: 2324463229546170760, guid: 948823f11fcad144a9551eee2cb736be, type: 3}
+  stumblingEnemy: {fileID: 3271427053935885527, guid: 25ff45a6d251d9c499a0120fdcb5ce22, type: 3}
 --- !u!65 &1348345348
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -63763,6 +63764,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1348345352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1348345346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3a51638be8149344a2ee0242a8f67c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  countdown: 15
+  timeBeforeRoundSpawn: 5
+  timeBeforeFirstRoundSpawn: 5
+  enemiesSpawnPerRound: 8
+  maxNumEnemyOnField: 30
 --- !u!43 &1354461545
 Mesh:
   m_ObjectHideFlags: 0
