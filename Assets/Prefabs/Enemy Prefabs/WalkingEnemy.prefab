@@ -456,7 +456,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minRange: 1
-  maxRange: 21
+  maxRange: 51
   marathonPrefab: {fileID: 6476784959142895741, guid: 421b9c5053e02484d9407e3649639cff, type: 3}
   empoweredPrefab: {fileID: 4706950759346627492, guid: 79f81da876750d24d83a8c57f64ce264, type: 3}
 --- !u!114 &-2011492821688600371
