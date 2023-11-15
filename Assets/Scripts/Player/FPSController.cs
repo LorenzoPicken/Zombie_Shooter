@@ -1,21 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 [RequireComponent(typeof(CharacterController))]
 public class FPSController : MonoBehaviour
 {
+    //Movement Values
     public Camera playerCamera;
     public float walkSpeed = 6f;
     public float runSpeed = 12f;
     public float jumpForce = 7f;
     public float gravity = 10f;
     public bool isRunning;
+    float curSpeedX, curSpeedY;
     
-
+    //Looking Values
     public float lookSpeed = 2f;
     public float lookXLimit = 45f;
 
+    //Stamina
+    [SerializeField] private float maxStamina;
+    [SerializeField] private float staminaDrainRate;
+    [SerializeField] private float staminaRegenRate;
+    [SerializeField] private float timeBeforeStandardRegen;
+    [SerializeField] private float timeBeforeExhaustionRegen;
+    private float currentTimeBeforeStandardRegen, currentTimeBeforeExhaustionRegen;
+    private float currentStamina;
+    private Coroutine regenRoutine;
+    public static event Action OnStaminaExhaustion;
     
 
     Vector3 moveDirection = Vector3.zero;
@@ -31,7 +44,10 @@ public class FPSController : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        //gunBehaviour = GetComponent<GunBehaviour>();
+        currentStamina = maxStamina;
+        currentTimeBeforeStandardRegen = timeBeforeStandardRegen;
+        currentTimeBeforeExhaustionRegen = timeBeforeExhaustionRegen;
+
     }
 
     // Update is called once per frame
@@ -42,9 +58,50 @@ public class FPSController : MonoBehaviour
         Vector3 forward = transform.TransformDirection(Vector3.forward);
         Vector3 right = transform.TransformDirection(Vector3.right);
 
-        isRunning = Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.S);
-        float curSpeedX = canMove ? (isRunning ? runSpeed : walkSpeed) * Input.GetAxis("Vertical") : 0;
-        float curSpeedY = canMove ? (isRunning ? runSpeed : walkSpeed) * Input.GetAxis("Horizontal") : 0;
+        isRunning = (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.S) && currentStamina > 0);
+        if (isRunning && canMove)
+        {
+            curSpeedX = runSpeed * Input.GetAxis("Vertical");
+            curSpeedY = runSpeed * Input.GetAxis("Horizontal");
+            currentTimeBeforeStandardRegen = timeBeforeStandardRegen;
+            currentTimeBeforeExhaustionRegen = timeBeforeExhaustionRegen;
+            currentStamina -= staminaDrainRate * Time.deltaTime;
+            if (regenRoutine != null)
+            {
+                StopCoroutine(regenRoutine);
+                regenRoutine = null;
+            }
+            Debug.Log("Stamina Levels "+ currentStamina);
+
+
+        }
+        else if (!isRunning && canMove)
+        {
+            curSpeedX = walkSpeed * Input.GetAxis("Vertical");
+            curSpeedY = walkSpeed * Input.GetAxis("Horizontal");
+            if (currentStamina < maxStamina && currentStamina > 0)
+            {
+                currentTimeBeforeStandardRegen -= Time.deltaTime;
+                if (currentTimeBeforeStandardRegen <= 0)
+                {
+                    if (regenRoutine == null)
+                    {
+                        regenRoutine = StartCoroutine(StamRegen());
+
+                    }
+                }
+            }
+            else if (currentStamina <= 0)
+            {
+                Debug.Log("Stamina is Depleated");
+                RegenFromExhaustion();
+            }
+            
+        }
+        
+        
+        //float curSpeedX = canMove ? (isRunning ? runSpeed : walkSpeed) * Input.GetAxis("Vertical") : 0;
+       // float curSpeedY = canMove ? (isRunning ? runSpeed : walkSpeed) * Input.GetAxis("Horizontal") : 0;
         float movementDirectionY = moveDirection.y;
         moveDirection = (forward * curSpeedX) + (right * curSpeedY);
         
@@ -82,17 +139,28 @@ public class FPSController : MonoBehaviour
         }
         #endregion
     }
-
-    public void Is_Running()
+    public void RegenFromExhaustion()
     {
-        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.Mouse1))
+        currentTimeBeforeExhaustionRegen -= Time.deltaTime;
+        if (currentTimeBeforeExhaustionRegen <= 0)
         {
-            isRunning = true;
+            if (regenRoutine == null) 
+            {
+                currentStamina = maxStamina / 2;
+                regenRoutine = StartCoroutine(StamRegen());
+                OnStaminaExhaustion?.Invoke();
+            }
         }
-        if (Input.GetKeyUp(KeyCode.LeftShift))
-        {
-            isRunning = false;
-        }
+    }
 
+    IEnumerator StamRegen()
+    {
+        while(currentStamina < maxStamina)
+        {
+            Debug.Log("StandardStaminaRegen has Begun" + currentStamina);
+            currentStamina+= staminaRegenRate * Time.deltaTime;
+            currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina);
+            yield return null;
+        }
     }
 }
