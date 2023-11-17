@@ -8,9 +8,9 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Material1
-  m_Shader: {fileID: 10704, guid: 0000000000000000f000000000000000, type: 0}
-  m_Parent: {fileID: 2100000, guid: b5fd3fdb454a48d408d0ee50b796d061, type: 2}
-  m_ModifiedSerializedProperties: 0
+  m_Shader: {fileID: 200, guid: 0000000000000000f000000000000000, type: 0}
+  m_Parent: {fileID: 2100000, guid: 527027c8baf2f0540be3104a3ec38a99, type: 2}
+  m_ModifiedSerializedProperties: 16
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -28,6 +28,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
-    m_Floats: []
-    m_Colors: []
+    m_Floats:
+    - _InvFade: 0.01
+    m_Colors:
+    - _TintColor: {r: 0.754717, g: 0.754717, b: 0.754717, a: 1}
   m_BuildTextureStacks: []
