@@ -11,6 +11,7 @@ public static class Stats
     private static int points = 0;
     private static int score = 0;
     private static int totalKills = 0;
+    private static int numEnemiesOnField = 0;
 
     public static int Points
     {
@@ -26,6 +27,11 @@ public static class Stats
     {
         get { return totalKills; }
         set { totalKills = value; }
+    }
+    public static int NumEnemiesOnField
+    {
+        get { return numEnemiesOnField; }
+        set { numEnemiesOnField = value; }
     }
 
     public static void ResetStats()
@@ -44,5 +50,6 @@ public static class Stats
     public static void GainKills()
     {
         totalKills += 1;
+        numEnemiesOnField--;
     }
 }

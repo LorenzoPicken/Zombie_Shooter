@@ -11,7 +11,19 @@ public class EnemyChaseAI : MonoBehaviour
     private Transform playerPosition;
     private GameObject Target;
     
-    
+    /*private static List<EnemyChaseAI> enemies;
+
+    private void OnEnable()
+    {
+        enemies.Add(this);
+    }
+
+    private void OnDestroy()
+    {
+        enemies.Remove(this);
+
+    }*/
+
     // Start is called before the first frame update
     void Start()
     {
