@@ -14,7 +14,7 @@ public class FPSController : MonoBehaviour
     public float gravity = 10f;
     public bool isRunning;
     float curSpeedX, curSpeedY;
-    
+
     //Looking Values
     public float lookSpeed = 2f;
     public float lookXLimit = 45f;
@@ -29,7 +29,7 @@ public class FPSController : MonoBehaviour
     private float currentStamina;
     private Coroutine regenRoutine;
     public static event Action OnStaminaExhaustion;
-    
+
 
     Vector3 moveDirection = Vector3.zero;
     float rotationX = 0;
@@ -58,6 +58,49 @@ public class FPSController : MonoBehaviour
         Vector3 forward = transform.TransformDirection(Vector3.forward);
         Vector3 right = transform.TransformDirection(Vector3.right);
 
+        Vector3 vertical;
+        Vector3 horizontal;
+
+       /* //Move Forward
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            vertical = new Vector3(0, 0, 1);
+        }
+        else if (Input.GetKeyUp(KeyCode.W))
+        {
+            vertical = new Vector3(0, 0, 0);
+        }
+
+        //Move Backwards
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            vertical = new Vector3(0, 0, -1);
+        }
+        else if (Input.GetKeyUp(KeyCode.S))
+        {
+            vertical = new Vector3(0, 0, 0);
+        }
+
+        //Move Right
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            horizontal = new Vector3(1, 0, 0);
+        }
+        else if (Input.GetKeyUp(KeyCode.D))
+        {
+            horizontal = new Vector3(0, 0, 0);
+        }
+
+        //Move Left
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            horizontal = new Vector3(-1, 0, 0);
+        }
+        else if (Input.GetKeyUp(KeyCode.W))
+        {
+            horizontal = new Vector3(0, 0, 0);
+        }*/
+
         isRunning = (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.S) && currentStamina > 0);
         if (isRunning && canMove)
         {
@@ -71,7 +114,7 @@ public class FPSController : MonoBehaviour
                 StopCoroutine(regenRoutine);
                 regenRoutine = null;
             }
-            Debug.Log("Stamina Levels "+ currentStamina);
+            Debug.Log("Stamina Levels " + currentStamina);
 
 
         }
@@ -96,17 +139,18 @@ public class FPSController : MonoBehaviour
                 Debug.Log("Stamina is Depleated");
                 RegenFromExhaustion();
             }
-            
+
         }
-        
-        
+
+
         //float curSpeedX = canMove ? (isRunning ? runSpeed : walkSpeed) * Input.GetAxis("Vertical") : 0;
-       // float curSpeedY = canMove ? (isRunning ? runSpeed : walkSpeed) * Input.GetAxis("Horizontal") : 0;
+        // float curSpeedY = canMove ? (isRunning ? runSpeed : walkSpeed) * Input.GetAxis("Horizontal") : 0;
         float movementDirectionY = moveDirection.y;
         moveDirection = (forward * curSpeedX) + (right * curSpeedY);
-        
 
-        #endregion 
+
+
+        #endregion
 
         #region Handles Jumping
 
@@ -144,7 +188,7 @@ public class FPSController : MonoBehaviour
         currentTimeBeforeExhaustionRegen -= Time.deltaTime;
         if (currentTimeBeforeExhaustionRegen <= 0)
         {
-            if (regenRoutine == null) 
+            if (regenRoutine == null)
             {
                 currentStamina = maxStamina / 2;
                 regenRoutine = StartCoroutine(StamRegen());
@@ -155,10 +199,10 @@ public class FPSController : MonoBehaviour
 
     IEnumerator StamRegen()
     {
-        while(currentStamina < maxStamina)
+        while (currentStamina < maxStamina)
         {
             Debug.Log("StandardStaminaRegen has Begun" + currentStamina);
-            currentStamina+= staminaRegenRate * Time.deltaTime;
+            currentStamina += staminaRegenRate * Time.deltaTime;
             currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina);
             yield return null;
         }

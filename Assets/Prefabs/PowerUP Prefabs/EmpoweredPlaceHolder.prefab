@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8032411950314149784}
   - component: {fileID: 705210527099408281}
   - component: {fileID: 1800532194508186958}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: EmpoweredPlaceHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4966719214927270506}
   - component: {fileID: 4483220652427954001}
   - component: {fileID: -2413170063459228775}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: MarathonPlaceHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}

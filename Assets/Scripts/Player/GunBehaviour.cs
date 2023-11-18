@@ -4,11 +4,13 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.Experimental.GlobalIllumination;
 using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 
 public class GunBehaviour : MonoBehaviour
 {
     //Gun Stats
     [SerializeField] public int bulletDamage;
+    private int currentBulletDamage;
     [SerializeField] public float bulletSpread;
     private float StartingBulletSpread;
     [SerializeField] public float bulletsPerTriggerPull;
@@ -32,21 +34,11 @@ public class GunBehaviour : MonoBehaviour
     public ParticleSystem muzzleFlash;
     public TextMeshProUGUI text;
 
-
-/* Unmerged change from project 'Assembly-CSharp.Player'
-Before:
-    private FPSController fpsController;
-
-
-    private void Start()
-After:
-    private FPSController fpsController;
-    private global::System.Int32 bulletsLeftInMag;
-
-    private void Start()
-*/
     private FPSController fpsController;
     private int bulletsLeftInMag;
+
+    //recoil
+    private WeaponRecoil recoil;
 
     public int BulletsLeftInMag 
     { 
@@ -65,7 +57,8 @@ After:
         BulletsLeftInMag = magazineSize;
         readyToShoot = true;
         isADS = false;
-        GetComponent<FPSController>();
+        fpsController = GetComponent<FPSController>();
+        recoil = GetComponent<WeaponRecoil>();
     }
 
 
@@ -81,8 +74,13 @@ After:
     //Handles shooting
     public void Shoot() 
     {
+
         if (readyToShoot && shooting && !reloading && BulletsLeftInMag > 0)
         {
+            //Making sure each new bullet starts at full damage
+            currentBulletDamage = bulletDamage;
+            recoil.ApplyRecoil();
+
             bulletsShot = bulletsPerTap;
             muzzleFlash.Play();
 
@@ -103,8 +101,23 @@ After:
                 Quaternion rotation = Quaternion.FromToRotation(hitPoint, surfaceNormal);
 
                 EnemyAttributes enemy = rayHit.transform.GetComponent<EnemyAttributes>();
-                if (enemy != null) { enemy.TakeDamage(bulletDamage); }
-                else { Instantiate(bulletHoleGraphic, hitPoint, rotation); }
+                if (enemy != null) 
+                { 
+                    enemy.TakeDamage(currentBulletDamage);
+                    Debug.Log("Enemy Hit For " + currentBulletDamage);
+
+                    // Reduce bullet damage for penetration
+                    currentBulletDamage = Mathf.Max(1, Mathf.RoundToInt(currentBulletDamage * 0.75f));
+
+                    // Continue the raycast
+                    direction = hitPoint - playerCamera.transform.position;
+
+                }
+                else 
+                { 
+                    Instantiate(bulletHoleGraphic, hitPoint, rotation);
+                    Debug.Log(rayHit.transform.name);
+                }
                 
             }
 
@@ -129,7 +142,7 @@ After:
     public void ADS()
     {
         float CurrentSpread = bulletSpread;
-        if (isADS == false && reloading == false)
+        if (isADS == false)
         {
             isADS = true;
             CurrentSpread = bulletSpread;
