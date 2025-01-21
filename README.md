@@ -1,0 +1,7 @@
+<h1>Zombie Shooter</h1>
+<p>Zombie Shooter is a placeholder name for this small unity project. Heavily inspired by the likes of the Call of Duty Zombies mode, this is an endless zombie horde shooter where the player must try and survive for as many rounds as possible against waves of monsters. As the rounds go by the foes will grow stronger and more numerous, making it harder for the player to uncover new areas and obtain new weapons. This project was our first foret into video game creation and the unity engine. As a team of two, we were able to put together this game within aproximately 3 months. Originally planned to be a rouge like arena shooter with gun mechanics reminissant of doom, then changed to be an rpg, wave shooter with a looting and crafting system, we eventually scaled down the project to the current simple hoard shooter that it is now.</p>
+<br>
+
+<h1>Gameplay</h1>
+<p>The gameplay loop is quite simple. The player will kill zombies to gain points. Using these points the player can purchase more powerful weapons and unlock new areas of the map to explore. As the rounds go on, the difficulty will increase making it harder and harder for the player to survive. The zombies will continuously chase the player, attempting to get within melee range in order to do damage to them. If the player takes too many hits in quick succession, they will die causing the game to end and displaying statistics such as game length, total kills and number of rounds completed.</p>
+<br>
