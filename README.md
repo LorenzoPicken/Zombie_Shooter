@@ -31,5 +31,18 @@
 
 <h1>Additional Mechanics</h1>
 <p>Some other mechanics include a simple stamina system for the player and an armour system which was partially implemented. The stamina system is pretty straight forward and basically only affects the player's sprint. An invisible bar of stamina will regenrate overtime and depleets whenever the player chooses to use their sprint. If they run out of stamina, the camera will darken and a vignette will blur and obscure the corners of the screen for a short duration. During this time, the player will be unable to sprint until, the regeneration begins.</p>
-<p>As for the armour system, 5 pieces of body armour are hidden throughout the map. Finding them and equipping them will apply damage reduction multiplier to the player which increases with each equipped piece. A full set of armor will increase the amount of hits the player can take from 3 to 5</p>
+<p>As for the armour system, 5 pieces of body armour are hidden throughout the map. Finding them and equipping them will apply damage reduction multiplier to the player which increases with each equipped piece. A full set of armor will increase the amount of hits the player can take from 3 to 5.</p>
+
+
+<h1>Planned feature that were never added</h1>
+<p>As this was our first game, we had planned to have many feature that we just werent able to add with the time we had requiring us to downscale the scope multiple times. This section is dedicated to all those features and ideas that we couldnt implement.</p>
+<br>
+
+<h2>The Hub</h2>
+<p>The hub was supposed to be a small village that the player could travel to via a portal which would spawn in the castle at random every few rounds. This was planned to be a market area where the player would be able to interact with numerous npcs to trade, purchase and craft equippment and much more.</p>
+
+<h2>Powerups</h2>
+<p>Powerups were rare temporary player buffs that had a small chance of spawning every time the player killed a monster. This included a speed boost, extra damage, time stop, elemental damage, etc. Currently in the gamefiles, the powerup spawn system as well as the speed boost buff are present, however due to not having an in game model, we chose to disabled it.</p>
+
+
 
