@@ -2,7 +2,7 @@
 
 <ul>
   <li>Player Movement and Controls</li>
-  <li>Weapon Design</li>
+  <li>Weapon Programming</li>
   <li>Zombie Spawning System</li>
   <li>Zombie Difficulty Scalling System</li>
   <li>Zombie Locomotion and Animations</li>
