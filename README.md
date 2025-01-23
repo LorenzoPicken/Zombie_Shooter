@@ -26,4 +26,10 @@
 <br>
 
 <p>The player position is also tracked to ensure that zombies always spawn nearby keeping the presure on. Besides this, zombies have weak points like the head and neck as well as less vulnerable areas like arms and legs which either increase the players damage or decrease it depending on which parts are shot. Finally, there are three types of zombies that can spawn. The first is very slow and is more common in the early game. The next is a slightly faster zombie that is faster than the previously mentioned one but not quicker than the player. Finally, the runner which starts spawning later in the game is the fastest of the zombies and is as fast as the player so long as they are not sprinting. Running out of sprint around them is a sure fire way to get swarmed and trapped.</p>
+<br><br>
+
+
+<h1>Additional Mechanics</h1>
+<p>Some other mechanics include a simple stamina system for the player and an armour system which was partially implemented. The stamina system is pretty straight forward and basically only affects the player's sprint. An invisible bar of stamina will regenrate overtime and depleets whenever the player chooses to use their sprint. If they run out of stamina, the camera will darken and a vignette will blur and obscure the corners of the screen for a short duration. During this time, the player will be unable to sprint until, the regeneration begins.</p>
+<p>As for the armour system, 5 pieces of body armour are hidden throughout the map. Finding them and equipping them will apply damage reduction multiplier to the player which increases with each equipped piece. A full set of armor will increase the amount of hits the player can take from 3 to 5</p>
 
