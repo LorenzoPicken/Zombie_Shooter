@@ -48,9 +48,20 @@
 <h2>Special Enemy Types</h2>
 <p>Besides the regular zombies currently in the game, there were also plans to have a few other enemy types as well as mini bosses. Crawling monsters that would actively dodge out of the player's crosshair as well as ranged foes that would lob fireballs from a distance were all planned. Aditionally, one miniboss that we had debated implementing was a magical knight armour enemy that would either wield a halberd or a longsowrd and would be very resistant to regular bullets but weaker to melee based attacks.</p>
 
-<h2>Additional Weapons and different weapon system</h2>
+<h2>Additional Weapons and Different Weapon System</h2>
 <p>In its current state, the player can only carry one weapon at a time but always has unlimited ammunition. Originally however, the player was supposed to spawn in with the pistol and would have 3 additional weapon slots, one reserved for a melee weapon and the other two for additional guns. The pistol was planned to be the only gun with unlimited ammo and a low powered option that the player could fall back on in the case that they run out of bullets in their other weapons. Having its own dedicated inventory slot, the pistol would be with the player from start to finish.</p>
 <p>Aside from this change, additional weapons were planned to be implemented. Things such as a heavy crossbow, a battlehammer, explosive items, etc were all supposed to be able to be crafted by the player.</p>
+
+
+<h2>Revamped Currency System</h2>
+<p>The current purchasing system is a placeholder for the first idea we had which was one based on collecting monster parts. Whenever, the player killed a monster they would automatically collect a random body part from that monster. Things such as limbs, bone fragments, teeth, heads, etc would all have different drop rates and upon being collected would go into the player's duffle bag. From here, going back to the hub, the player can either trade these body parts in for gold (the rarer the part, the more gold it yields) or use them for crafting items and ressources. This gold can afterwards be used to purchase upgrades, buy some items that cant be crafted or purchase bounties.</p>
+
+<h2>Runes</h2>
+<p>Runes grant the player active or passive powerups that work seperately from the powerups dropped by monsters. Only one rune can be carried at anytime and must be purchased from a designated npc in the hub. When purchasing a rune, the player will be given one at random. In the case that they dont like the one they received, they can pay an increased cost to reroll. Each time this is done, the cost will increase only resetting once the player leaves the hub. Some of the powerups include instante regenration, the ability to dash, invisibility, and so on. Each rune is unique, excluding the different powerups that they grant. Things such as the number of uses it grants, or the cooldown between uses, if the ability can be activated by the player or automatically activates itself or both. </p>
+
+
+<h2>Upgrades</h2>
+<p>Upgrades were supposed to be purchased by the player to either increase their own stats, such as health, luck (Affects likelyhood of higher rarety monster drops/ increases chance of powerup spawns), stamina, or to upgrade their equipment which includes weapons, armour, inventory room. Some upgrades just cost gold while other require certain items to be collected as well.</p>
 
 
 
