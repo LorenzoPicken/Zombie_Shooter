@@ -64,4 +64,17 @@
 <p>Upgrades were supposed to be purchased by the player to either increase their own stats, such as health, luck (Affects likelyhood of higher rarety monster drops/ increases chance of powerup spawns), stamina, or to upgrade their equipment which includes weapons, armour, inventory room. Some upgrades just cost gold while other require certain items to be collected as well.</p>
 
 
+<h2>Armour</h2>
+<p>While armour is currently in the game, it was supposed to have an additional mechanic of needing to be repaired over time. Armour was going to have a certain amount of hits it could take before breaking, after which the player would need to repair it at the blacksmith in the hub in order to reactivate the damage negation multiplier that it offers.</p>
+
+
+<h2>The Gambler</h2>
+<p>The Gambler was supposed to be an npc present at th hub that the player could challenge to a game of dice. The player would challenge them by placing down a bet, of which the gambler would match. Winner would take all. The player could play up to three rounds, wagering the first two round at any price they wanted, however the third and last round would always be an all in game. This rule resets every time the player returns to the hub.</p>
+
+
+<h2>Sly and endgame progression</h2>
+<p>The main gameplay loop for the game was always planned to be an endless loop of killing swarms of monsters while offering the player a variety of weapons, powers and upgrades to be able to diversify their approach from playthrough to playthrough. A player could play for as long as they wanted until either they lost or until they decided to shut the game down. However, we had also wanted to add a secret ending in the form of a final boss fight that could be unlocked by completing quests, unlocked by talking to a certain NPC at the hub. Sly was the name we were going to give to this NPC and they were going to appear at the hub on the player's third visit. Sly would offer time sensitive contracts for the player to complete. These contracts could be bought for a small price and could reward additional gold, or monster parts, or even pieces to craft new weapons. These contracts would be challenges such as getting a certain number of headshots or not taking damage for a full round, etc, however, every so often, a special contract could present itself and if purchased would cause certain events to unfold that dont usually take place. This would eventually lead to unlocking a secret boss fight. Completing this would then end the game prematurely if a player chose to or offer special benefits if they choose to continue the game afterwards.</p>
+
+
+
 
