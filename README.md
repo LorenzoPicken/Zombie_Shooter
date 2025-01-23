@@ -32,6 +32,7 @@
 <h1>Additional Mechanics</h1>
 <p>Some other mechanics include a simple stamina system for the player and an armour system which was partially implemented. The stamina system is pretty straight forward and basically only affects the player's sprint. An invisible bar of stamina will regenrate overtime and depleets whenever the player chooses to use their sprint. If they run out of stamina, the camera will darken and a vignette will blur and obscure the corners of the screen for a short duration. During this time, the player will be unable to sprint until, the regeneration begins.</p>
 <p>As for the armour system, 5 pieces of body armour are hidden throughout the map. Finding them and equipping them will apply damage reduction multiplier to the player which increases with each equipped piece. A full set of armor will increase the amount of hits the player can take from 3 to 5.</p>
+<br><br>
 
 
 <h1>Planned feature that were never added</h1>
@@ -43,6 +44,13 @@
 
 <h2>Powerups</h2>
 <p>Powerups were rare temporary player buffs that had a small chance of spawning every time the player killed a monster. This included a speed boost, extra damage, time stop, elemental damage, etc. Currently in the gamefiles, the powerup spawn system as well as the speed boost buff are present, however due to not having an in game model, we chose to disabled it.</p>
+
+<h2>Special Enemy Types</h2>
+<p>Besides the regular zombies currently in the game, there were also plans to have a few other enemy types as well as mini bosses. Crawling monsters that would actively dodge out of the player's crosshair as well as ranged foes that would lob fireballs from a distance were all planned. Aditionally, one miniboss that we had debated implementing was a magical knight armour enemy that would either wield a halberd or a longsowrd and would be very resistant to regular bullets but weaker to melee based attacks.</p>
+
+<h2>Additional Weapons and different weapon system</h2>
+<p>In its current state, the player can only carry one weapon at a time but always has unlimited ammunition. Originally however, the player was supposed to spawn in with the pistol and would have 3 additional weapon slots, one reserved for a melee weapon and the other two for additional guns. The pistol was planned to be the only gun with unlimited ammo and a low powered option that the player could fall back on in the case that they run out of bullets in their other weapons. Having its own dedicated inventory slot, the pistol would be with the player from start to finish.</p>
+<p>Aside from this change, additional weapons were planned to be implemented. Things such as a heavy crossbow, a battlehammer, explosive items, etc were all supposed to be able to be crafted by the player.</p>
 
 
 
