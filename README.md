@@ -4,6 +4,7 @@
 
 <h1>Gameplay</h1>
 <p>The gameplay loop is quite simple. The player will kill zombies to gain points. Using these points the player can purchase more powerful weapons and unlock new areas of the map to explore. As the rounds go on, the difficulty will increase making it harder and harder for the player to survive. The zombies will continuously chase the player, attempting to get within melee range in order to do damage to them. If the player takes too many hits in quick succession, they will die causing the game to end and displaying statistics such as game length, total kills and number of rounds completed. Gameplay has three main components, the weapons, the map and the zombies which the player interacts with throughout a playthrough.</p>
+<a href="https://youtu.be/2BdFse8Ou64" target="_blank">Gameplay Demo Video</a>
 <br>
 
 <h2>Weapons</h2>
